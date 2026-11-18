@@ -1,7 +1,7 @@
 # SYSTEM.md — Grounded Research & QA Agent
 
 **Submission:** TAE Track Capstone Peer Review  
-**Commit Reference:** `b5b77d2` (`tag: v1.0.0-peer-review`)  
+**Commit Reference:** `28d6cc0` (`tag: v1.0.0-peer-review`)  
 **Target Environment:** Local laptop (zero cloud spend fallback)  
 **Evidence Index:** [`evidence/`](file:///c:/Users/HOME/Documents/Agentic%20ai%20project/agentic-qa-agent/evidence)
 
@@ -43,9 +43,16 @@ The Grounded Research & QA Agent is a fully local, tool-augmented reasoning syst
 
 ---
 
-### 5. Honest Declaration: Where It Would Break First
-- **Under Hostile Users:** An attacker utilizing multi-turn indirect prompt injection hidden within fetched external web content (`fetch_url`) could attempt to steer the agent's iterative reasoning before the output guardrail intercepts the final payload.
-- **Under Real Production Load:** The local sequential ReAct loop with synchronous tool execution and local Ollama inference bottlenecks under concurrent user traffic; latency degrades rapidly without an asynchronous task queue (e.g. Celery / Redis) and batched GPU model serving.
+### 5. Honest Declaration: Three Known Weaknesses
+1. **Concurrency Bottleneck & Memory Lock Contention:** The sequential synchronous ReAct loop and flat-file memory store (`.conversation_store.json`) lack transactional record locking and connection pooling; under concurrent user requests, sessions experience read/write race conditions and latency spikes without an async worker queue (e.g., Celery/Redis).
+2. **Vulnerability to Multi-Turn Indirect Prompt Injection:** Hostile content embedded in fetched third-party web pages (`fetch_url`) or tainted corpus docs can steer intermediate reasoning thoughts and tool actions before the post-generation guardrail examines the final payload.
+3. **Lexical Mismatch in Pure Keyword Retrieval:** Retrieval via `search_corpus` depends on unigram term overlap. Queries using synonyms or multi-hop conceptual reasoning miss relevant passages that a dense vector index (e.g., embeddings) would retrieve.
+
+---
+
+### 6. Declaration of Missing Artefacts & Substitutions
+- **No Missing Required Artefacts:** All 13 course module evidence items are fully implemented, verified, and located in the [`evidence/`](file:///c:/Users/HOME/Documents/Agentic%20ai%20project/agentic-qa-agent/evidence) directory.
+- **Sanctioned Cloud-Spend Substitution (Ground Rule 3):** To adhere strictly to the "no cloud spend required" mandate, the optional live Cloud Run container (Section 7) was not deployed to a paid billing account; instead, complete deployable container configurations (`deployment/Dockerfile`, `deployment/ci_pipeline.yml`, and `deployment/deploy_cloud.sh`) and local OpenTelemetry trace logs are provided as verifiable evidence.
 
 ---
 
