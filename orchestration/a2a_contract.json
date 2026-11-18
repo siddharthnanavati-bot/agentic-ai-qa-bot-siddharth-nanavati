@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent-to-Agent (A2A) Handoff Contract",
+  "version": "1.2.0",
+  "description": "Standard protocol for delegating subtasks between specialized agents.",
+  "contract_spec": {
+    "type": "object",
+    "required": [
+      "handoff_id",
+      "sender_agent",
+      "recipient_agent",
+      "session_context",
+      "payload",
+      "sla_timeout_seconds"
+    ],
+    "properties": {
+      "handoff_id": { "type": "string", "format": "uuid" },
+      "sender_agent": { "type": "string" },
+      "recipient_agent": { "type": "string" },
+      "session_context": {
+        "type": "object",
+        "required": ["session_id", "trace_id"],
+        "properties": {
+          "session_id": { "type": "string" },
+          "trace_id": { "type": "string" }
+        }
+      },
+      "payload": {
+        "type": "object",
+        "required": ["action_required", "evidence_pointers"],
+        "properties": {
+          "action_required": { "type": "string" },
+          "evidence_pointers": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "sla_timeout_seconds": { "type": "integer", "minimum": 1, "maximum": 120 }
+    }
+  },
+  "failed_handoff_trace": {
+    "event": "A2A_VALIDATION_ERROR",
+    "timestamp": "2026-11-18T16:45:10Z",
+    "trace_id": "a2a-trace-984b2c",
+    "sender": "ResearchCoordinatorAgent",
+    "attempted_recipient": "DataAnalysisSubagent",
+    "invalid_payload": {
+      "handoff_id": "f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+      "sender_agent": "ResearchCoordinatorAgent",
+      "recipient_agent": "DataAnalysisSubagent",
+      "session_context": {
+        "session_id": "sess_102"
+      },
+      "payload": {
+        "action_required": "calculate_statistics"
+      },
+      "sla_timeout_seconds": 180
+    },
+    "contract_violations": [
+      "Missing required property in session_context: 'trace_id'",
+      "Missing required property in payload: 'evidence_pointers'",
+      "sla_timeout_seconds (180) exceeds maximum allowed limit (120)"
+    ],
+    "resolution": "Coordinator trapped 422 ContractViolation, reconstructed payload with active trace_id and empty evidence list, clamped timeout to 60s, and re-dispatched successfully."
+  }
+}

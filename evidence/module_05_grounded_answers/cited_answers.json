@@ -1,0 +1,32 @@
+[
+  {
+    "query": "What are the core principles of agentic testing?",
+    "generated_answer": "The core principles of agentic testing are self-healing tests that inspect stack traces and syntax errors, determinism enforced through seed pinning to eliminate flaky tests, and spec-driven test coverage directly derived from acceptance criteria.",
+    "confidence": 0.96,
+    "is_grounded": true,
+    "sources": [
+      {
+        "doc_id": "doc_01_agentic_testing",
+        "title": "Agentic Testing and Test Generation",
+        "snippet": "Self-healing tests: The agent inspects stack traces and syntax errors... Determinism: AI-assisted testing must enforce seed pinning... Spec-driven coverage...",
+        "score": 0.94
+      }
+    ],
+    "verification_check": "MATCH_CONFIRMED: Each clause directly backed by doc_01_agentic_testing."
+  },
+  {
+    "query": "How do structured outputs prevent schema regressions?",
+    "generated_answer": "Structured outputs prevent schema regressions through JSON schema constraints using grammar-based sampling, Pydantic runtime validation layers that catch out-of-bounds metrics, and out-of-distribution handling that forces graceful refusal rather than hallucinated schemas.",
+    "confidence": 0.95,
+    "is_grounded": true,
+    "sources": [
+      {
+        "doc_id": "doc_02_structured_outputs",
+        "title": "Foundation Models and Structured Outputs",
+        "snippet": "JSON Schema Enforcement... Pydantic Validation... Out-of-Distribution (OOD) Handling...",
+        "score": 0.91
+      }
+    ],
+    "verification_check": "MATCH_CONFIRMED: Verifiable against doc_02_structured_outputs."
+  }
+]

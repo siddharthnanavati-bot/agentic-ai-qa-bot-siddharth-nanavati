@@ -1,0 +1,20 @@
+{"id": "gold_01", "query": "What are the core principles of agentic testing?", "expected_doc": "doc_01_agentic_testing", "must_include": ["self-healing", "determinism", "spec-driven"]}
+{"id": "gold_02", "query": "How do self-healing tests work?", "expected_doc": "doc_01_agentic_testing", "must_include": ["stack traces", "syntax errors", "fixtures"]}
+{"id": "gold_03", "query": "Why is determinism important in AI-assisted testing?", "expected_doc": "doc_01_agentic_testing", "must_include": ["seed", "flaky"]}
+{"id": "gold_04", "query": "How does structured output prevent parse failures?", "expected_doc": "doc_02_structured_outputs", "must_include": ["schema", "validation"]}
+{"id": "gold_05", "query": "What validation layer traps out-of-bounds metrics?", "expected_doc": "doc_02_structured_outputs", "must_include": ["pydantic", "confidence"]}
+{"id": "gold_06", "query": "How are out-of-distribution queries handled in structured outputs?", "expected_doc": "doc_02_structured_outputs", "must_include": ["refuse", "hallucinating"]}
+{"id": "gold_07", "query": "What are the key dimensions of evaluation engineering?", "expected_doc": "doc_03_eval_engineering", "must_include": ["groundedness", "relevance", "tool"]}
+{"id": "gold_08", "query": "What does groundedness or faithfulness measure?", "expected_doc": "doc_03_eval_engineering", "must_include": ["claims", "context", "supported"]}
+{"id": "gold_09", "query": "How does statistical gating handle model stochasticity?", "expected_doc": "doc_03_eval_engineering", "must_include": ["confidence intervals", "repetitions"]}
+{"id": "gold_10", "query": "What is direct prompt injection?", "expected_doc": "doc_04_red_teaming", "must_include": ["disregard", "system prompt"]}
+{"id": "gold_11", "query": "What is indirect prompt injection?", "expected_doc": "doc_04_red_teaming", "must_include": ["retrieved", "corpus", "hijack"]}
+{"id": "gold_12", "query": "What are the components of layered guardrail defense?", "expected_doc": "doc_04_red_teaming", "must_include": ["input sanitization", "filtering", "sandbox"]}
+{"id": "gold_13", "query": "What is the purpose of OpenTelemetry tracing in agentic systems?", "expected_doc": "doc_05_observability", "must_include": ["end-to-end", "reasoning"]}
+{"id": "gold_14", "query": "What does the root span represent in observability?", "expected_doc": "doc_05_observability", "must_include": ["request lifecycle", "latency"]}
+{"id": "gold_15", "query": "What information should tool call spans record?", "expected_doc": "doc_05_observability", "must_include": ["input parameters", "return values", "retry"]}
+{"id": "gold_16", "query": "How do traces help in root cause analysis?", "expected_doc": "doc_05_observability", "must_include": ["pinpoint", "retrieval failures", "timeouts"]}
+{"id": "gold_17", "query": "How do agents enforce 100% syntactic conformity in JSON generation?", "expected_doc": "doc_02_structured_outputs", "must_include": ["grammar-based", "schema"]}
+{"id": "gold_18", "query": "What does tool selection precision evaluate?", "expected_doc": "doc_03_eval_engineering", "must_include": ["correct tool", "schema parameters"]}
+{"id": "gold_19", "query": "How does an agent avoid executing malicious python scripts in tool execution?", "expected_doc": "doc_04_red_teaming", "must_include": ["sandbox", "restrictions"]}
+{"id": "gold_20", "query": "What is spec-driven test coverage?", "expected_doc": "doc_01_agentic_testing", "must_include": ["acceptance criteria", "edge condition"]}
