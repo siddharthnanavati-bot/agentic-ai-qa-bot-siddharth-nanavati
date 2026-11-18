@@ -1,7 +1,7 @@
 # SYSTEM.md — Grounded Research & QA Agent
 
 **Submission:** TAE Track Capstone Peer Review  
-**Commit Reference:** `28d6cc0` (`tag: v1.0.0-peer-review`)  
+**Commit Reference:** `8de1355` (`tag: v1.0.0-peer-review`)  
 **Target Environment:** Local laptop (zero cloud spend fallback)  
 **Evidence Index:** [`evidence/`](file:///c:/Users/HOME/Documents/Agentic%20ai%20project/agentic-qa-agent/evidence)
 
